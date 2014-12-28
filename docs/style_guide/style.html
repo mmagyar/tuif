@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Javascript Style Guide</title>
+	<link rel="stylesheet" type="text/css" href="../base.css">
+	<link rel="stylesheet" type="text/css" href="../theme_dark.css" id="dark_css">
+	<script src="../toggle_css.js" type="text/javascript"></script>
+</head>
+<body>
+<h1>Project Style Guide</h1>
+<a href="javascript:toggle_css_by_id('dark_css')" class="button">Toggle light/dark style</a>
+
+<div id="main">
+	<div><h2>Contents</h2>
+		<ul>
+			<li>
+				<h3 class="no_margin"><a href="#file_names">Naming conventions</a></h3>
+				<ul>
+					<li><a href="#file_names">Files</a></li>
+					<li><a href="#variable_names">Variables</a></li>
+					<li><a href="#function_name">Functions</a></li>
+					<li><a href="#class_name">Classes</a></li>
+					<li><a href="#member_name">Members</a></li>
+					<!--<li><a href="#"></a></li>-->
+				</ul>
+			</li>
+			<li>
+				<h3 class="no_margin"><a href="#whitespace">Whitespace</a></h3>
+				<ul>
+					<li><a href="#indentation">Indentation</a></li>
+				</ul>
+			</li>
+			<li>
+				<h3 class="no_margin"><a href="#comments">Comments</a></h3>
+				<ul>
+					<li><a href="#lang_comment">Language</a></li>
+					<li><a href="#code_comment">Code</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<div id="naming" class="chapter">
+		<h2>Naming Conventions</h2>
+
+		<div id="file_names">
+			<h3>Files</h3>
+
+			<div class="detail">
+				<p>all lowercase, words are separated by underscores.</p>
+				<h4>Example</h4>
+
+				<div class="detail code">
+					my_source_code_file.js<br /> ansi_terminal.js
+				</div>
+				<h4>Justification:</h4>
+
+				<div class="detail">
+					<p>use all lower case file names to avoid any problems on (non)case sensitive file systems.</p>
+				</div>
+			</div>
+		</div>
+		<div id="variable_names">
+			<h3>Variables</h3>
+
+			<div class="detail">
+				<p>Write variable names in camel case, shorter, more local names are encouraged.
+					<br /> Simple, less than 10 loc functions with one or two arguments can use single letter variable names if their function is obvious.
+					<br />Variables that are used as constants (Written only once, and than only read) Should be written in all Capitals (Upper-case) with underscores. </p>
+				<h4>Example</h4>
+
+				<div class="detail code">
+					myVariableName<br /> thisIsAGoodName<br />THIS_IS_A_CONSTANT<br />CONST_BY_WHY_AM_I_SHOUTING
+				</div>
+			</div>
+		</div>
+		<div id="function_name">
+			<h3>Functions</h3>
+
+			<div class="detail"><p>Functions names should consist of lower case letters, words separated with underscores.</p>
+				<h4>Example</h4>
+
+				<div class="detail code">
+					my_function_name()<br /> this_is_a_good_function_name_just_a_bit_long()
+				</div>
+				<h4>Justification:</h4>
+
+				<div class="detail">
+					<p>Most modern style guides use camel case for function names, but that is a bad idea since you can't distinguish functions from variables, this is especially important since javascript has First-class functions. That can easily lead to "undefined is not a function".</p>
+				</div>
+			</div>
+		</div>
+		<div id="class_name">
+			<h3>Classes</h3>
+
+			<div class="detail">
+				<p>Classes should use camel case names with should always start with upper case letter.</p>
+				<h4>Example</h4>
+
+				<div class="detail code">
+					MyClassName<br />ARandomClassName
+				</div>
+			</div>
+		</div>
+		<div id="member_name">
+			<h3>Class Members</h3>
+
+			<div class="detail">
+				<p>Members should be no different than any other variable</p>
+			</div>
+		</div>
+	</div>
+	<div id="whitespace" class="chapter">
+		<h2>Whitespace</h2>
+
+		<div class="detail" id="indentation">
+			<h3>Indentation</h3>
+
+			<div class="detail">
+				<p>Indentation should be done with tab characters, each indentation level is 1 tab character.
+					<br />There should be no other whitespace character then tab before any non whitespace character.
+					<br />There should be no tab character after any non whitespace character. <br />Always make sure your indentation is correct.</p>
+
+				<p>NEVER under any circumstance should a tab and a space character be beside each other!</p>
+				<h4>Justification:</h4>
+
+				<div class="detail">
+					<p>Using tabs to indent allows every developer to use their favorite indentation size without modifying the source code</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="comments" class="chapter">
+		<h2>Comments</h2>
+
+		<div class="detail" id="lang_comment">
+			<h3>Language</h3>
+
+			<div class="detail">
+				<p>All comments should in english language</p>
+			</div>
+		</div>
+		<div class="detail" id="code_comment">
+			<h3>Code</h3>
+
+			<div class="detail"><p>Never leave unused, commented code in the source files, that's what version control is for.</p></div>
+		</div>
+	</div>
+</div>
+<div class="button"><a href="../index.html"> Back</a></div>
+</body>
+</html>

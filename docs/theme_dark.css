@@ -1,0 +1,18 @@
+body {
+	background-color: #000;
+	color: #FF7F00;
+}
+
+a:link {
+	color: #FC7
+}
+
+a:visited {
+	color: #C93
+}
+
+.code {
+	color: #0F0;
+	background-color: #333;
+}
+
