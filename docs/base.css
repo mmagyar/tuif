@@ -11,7 +11,7 @@ h1 {
 	margin-left: 2em;
 	/*max-width: 75%;*/
 }
-
+pre{margin:0;}
 .button {
 	border: 1px solid #888888;
 	display: inline-block;
@@ -64,8 +64,7 @@ h1 {
 	margin-left: 1em;
 }
 
-.code {
-	font-family: monospace;
+.code {	font-family: monospace;
 	color:#000;
 	background-color: #EEE;
 	padding:1em;

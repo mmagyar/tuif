@@ -4,14 +4,69 @@
 	<title>TUIF Documentation</title>
 	<link rel="stylesheet" type="text/css" href="base.css">
 	<link rel="stylesheet" type="text/css" href="theme_dark.css" id="dark_css">
-	<script src="toggle_css.js" type="text/javascript"></script>
+	<script src="set_theme.js" type="text/javascript"></script>
 </head>
 <body>
 <h1>Project documentation</h1>
-<a href="javascript:toggle_css_by_id('dark_css')" class="button">Toggle light/dark style</a>
+<a href="javascript:themeButton()" class="button">Toggle light/dark style</a>
+
 <div id="main">
-<h1><a href="style_guide/style.html" class="button">Style guide</a></h1>
+	<h1>What is TUIF?</h1>
+
+	<div class="detail">
+		<p>TUIF stands for Text User Interface Framework</p>
+
+		<p>It can be used to make text based user interfaces that can work with different outputs, these outputs will include:</p>
+		<ul>
+			<li>ANSI terminal</li>
+			<li>HTML</li>
+			<li>SDL</li>
+		</ul>
+		<p>The first implementations will be for ANSI terminal that should work both locally and from telnet access</p>
+
+		<p>It has an extensible, modular system, consisting of the following modules: </p>
+		<ul>
+			<li>
+				<h4 class="no_margin">Data store</h4>
+
+				<div class="detail">It holds the elements data, It can be persistent or in memory</div>
+			</li>
+			<li>
+				<h4 class="no_margin">Element Manager</h4>
+
+				<div class="detail">It manages the data, adds, removes elements</div>
+			</li>
+			<li>
+				<h4 class="no_margin">Layout Engine</h4>
+
+				<div class="detail">It handles the layout of the elements</div>
+			</li>
+			<li>
+				<h4 class="no_margin"> Output module</h4>
+
+				<div class="detail">It turns the data, into actual displayable character/HTML elements/pixels</div>
+			</li>
+			<li>
+				<h4 class="no_margin">Input module</h4>
+
+				<div class="detail">It turns inputs (keyboard, touchscreen, mouse) into usable events</div>
+			</li>
+		</ul>
+	</div>
+	<h2>What is the point if this?</h2>
+
+	<div class="detail">
+		<p>There are multiple reasons for this.</p>
+
+		<p>There is no tool that allows you to write once and use it on HTML, terminal and Native GUI app.
+			<br />While HTML(+css+js) is nice and can work on even in a natively running software (and on terminal, to some degree), But it's overly complex and slow for a lot of applications..
+		</p>
+	</div>
+	<h1><a href="style_guide/style.html" onclick="themeLink(this)" class="button">Style guide</a></h1>
+
 	<h1>Specifications</h1>
+
+	<div class="detail">TODO</div>
 </div>
 </body>
 </html>

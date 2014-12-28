@@ -4,11 +4,11 @@
 	<title>Javascript Style Guide</title>
 	<link rel="stylesheet" type="text/css" href="../base.css">
 	<link rel="stylesheet" type="text/css" href="../theme_dark.css" id="dark_css">
-	<script src="../toggle_css.js" type="text/javascript"></script>
+	<script src="../set_theme.js" type="text/javascript"></script>
 </head>
 <body>
 <h1>Project Style Guide</h1>
-<a href="javascript:toggle_css_by_id('dark_css')" class="button">Toggle light/dark style</a>
+<a href="javascript:themeButton()" class="button">Toggle light/dark style</a>
 
 <div id="main">
 	<div><h2>Contents</h2>
@@ -28,6 +28,7 @@
 				<h3 class="no_margin"><a href="#whitespace">Whitespace</a></h3>
 				<ul>
 					<li><a href="#indentation">Indentation</a></li>
+					<li><a href="#spacing">Spacing</a></li>
 				</ul>
 			</li>
 			<li>
@@ -128,6 +129,17 @@
 				</div>
 			</div>
 		</div>
+		<div class="detail" id="spacing">
+			<h3>Spacing</h3>
+			<h4>Example</h4>
+
+			<div class="detail code">
+				<pre>if (variable === 1)</pre>
+				<pre>    return true</pre>
+				<pre>else</pre>
+				<pre>    throw "variable should be one"</pre>
+			</div>
+		</div>
 	</div>
 	<div id="comments" class="chapter">
 		<h2>Comments</h2>
@@ -146,6 +158,6 @@
 		</div>
 	</div>
 </div>
-<div class="button"><a href="../index.html"> Back</a></div>
+<div class="button"><a href="../index.html" onclick="themeLink(this)"> Back</a></div>
 </body>
 </html>
