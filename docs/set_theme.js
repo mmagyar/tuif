@@ -1,32 +1,34 @@
-function getQueryVariable(variable) {
-	var query = window.location.search.substring(1);
-	var vars = query.split("&");
-	for (var i = 0; i < vars.length; i++) {
-		var pair = vars[i].split("=");
-		if (pair[0] == variable) {
-			return pair[1];
-		}
-	}
-	return (false);
-}
-
 document.addEventListener("DOMContentLoaded", function (event) {
-	var style = document.getElementById('dark_css');
-	style.disabled = getQueryVariable('theme') == 'light';
+	setThemeToCookie()
 });
 
+function setThemeToCookie() {
+	var style = document.getElementById('dark_css');
+	style.disabled = getCookie('theme') == 'light';
+}
 function themeButton() {
-	if (getQueryVariable('theme') == 'light') {
-		document.location = '?theme=dark'
+	var theme = getCookie('theme');
+	console.log(theme);
+	removeCookie('theme'); //to ensure that there are no local duplicates
+	if (theme == 'light') {
+		setCookie("theme", "dark");
 	} else {
-		document.location = '?theme=light'
+		setCookie("theme", "light");
 	}
+	setThemeToCookie();
 }
 
-function themeLink(element) {
-	var current = getQueryVariable('theme');
-	if (element.href.indexOf('?theme=') > -1 || element.href.indexOf('&theme=') > -1) {
-	} else {
-		element.href += "?theme=" + (current ? current : 'dark');
+function getCookie(sKey) {
+	return decodeURIComponent(document.cookie.replace(new RegExp("(?:(?:^|.*;)\\s*" + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=\\s*([^;]*).*$)|^.*$"),
+			"$1")) || null;
+}
+function setCookie(sKey, sValue) {
+	document.cookie = encodeURIComponent(sKey) + "=" + encodeURIComponent(sValue) + "; expires=Fri, 31 Dec 9999 23:59:59 GMT" + "; path=/";
+}
+function removeCookie(sKey, sPath, sDomain) {
+	if (!(new RegExp("(?:^|;\\s*)" + encodeURIComponent(sKey).replace(/[\-\.\+\*]/g, "\\$&") + "\\s*\\=")).test(document.cookie)) {
+		return false;
 	}
+	document.cookie = encodeURIComponent(sKey) + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT" + (sDomain ? "; domain=" + sDomain : "") + (sPath ? "; path=" + sPath : "");
+	return true;
 }
