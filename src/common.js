@@ -21,7 +21,7 @@ exports.Dim = function (x,y,w,h) {
 
 exports.checkType =function (variable, type) {
 	if (!(variable instanceof type)){
-		throw "The arugment must be and instance of type: " + type;
+		throw 'The arugment must be and instance of type: ' + type;
 	}
 	return 0;
 };
