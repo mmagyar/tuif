@@ -1,0 +1,9 @@
+{
+  "name": "tuif",
+  "version": "0.0.1",
+  "url": "http://github.com/mmagyar/tuif",
+  "author": "Magyar Mate <hunyeti@gmail.com>",
+  "email": "hunyeti@gmail.com",
+  "license": "GPL-3.0+",
+  "main": "src/main.js"
+}
