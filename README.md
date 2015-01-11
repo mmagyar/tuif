@@ -1,4 +1,4 @@
-<h2>I simple UI toolkit for character cell based display</h2>
+<h2>A simple UI toolkit for character cell based display</h2>
 <p>It is can be used with nodejs on the standard output or to genrate output html/css output for the web browser</p>
 <div>
 Copyright © Magyar Máté 2014
