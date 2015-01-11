@@ -1,5 +1,6 @@
+/* jshint browser:true*/
 document.addEventListener("DOMContentLoaded", function (event) {
-	setThemeToCookie()
+	setThemeToCookie();
 });
 
 function setThemeToCookie() {
@@ -8,7 +9,6 @@ function setThemeToCookie() {
 }
 function themeButton() {
 	var theme = getCookie('theme');
-	console.log(theme);
 	removeCookie('theme'); //to ensure that there are no local duplicates
 	if (theme == 'light') {
 		setCookie("theme", "dark");
