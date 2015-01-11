@@ -2,8 +2,8 @@
 	// Enforcing Options
 	"bitwise": true, // Prohibit bitwise operators (&, |, ^, etc.).
 	"camelcase": false,
-	"curly": true, // Require {} for every new block or scope.
-	"eqeqeq": true, // Require triple equals i.e. `===`.
+	"curly": false, // Require {} for every new block or scope.
+	"eqeqeq": false, // Require triple equals i.e. `===`.//NOTE : this is stupid, there are legitimate uses for soft comparison
 	"es3": false,
 	"forin": true, // Tolerate `for in` loops without `hasOwnPrototype`.
 	"freeze": true,
@@ -13,11 +13,12 @@
 	"noarg": true, // Prohibit use of `arguments.caller` and `arguments.callee`.
 	"noempty": true, // Prohibit use of empty blocks.
 	"nonew": true, // Prohibit use of constructors for side-effects.
-	"plusplus": true, // Prohibit use of `++` & `--`.
+	"plusplus": false, // Prohibit use of `++` & `--`.
 	"regexp": true, // Prohibit `.` and `[^...]` in regular expressions.
 	"undef": true, // Require all non-global variables be declared before they are used.
 	"strict": false, // Require `use strict` pragma in every file.
 	"trailing": true, // Prohibit trailing whitespaces.
+	"quotmark" : "single",
 	"maxdepth": 8,
 	"maxlen": 120,
 	"maxparams": 8,
