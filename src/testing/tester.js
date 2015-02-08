@@ -139,7 +139,8 @@ function TestSuit() {
 	};
 
 	self.printResults = () => printTests(testRes);
-	self.getResult = () => testRan ? truthTest(testRes) : console.log('The test must be run before getting the result');
+	self.getResult = () => testRan ? truthTest(testRes, self.printErrorLevel1) :
+		console.log('The test must be run before getting the result');
 	self.getResultArray = () => testRes.slice();
 }
 

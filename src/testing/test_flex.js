@@ -52,9 +52,8 @@ function runTests() {
 		runTests(t7Data, [20, 22, 24], 'test if the values have smaller cumulative with than totoal width');
 
 		//var testResult = tester.truthTest(testRes, true);
-		
+
 		ts.run();
-		
 		return ts.getResult();
 	}
 	var tests = [];
