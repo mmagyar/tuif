@@ -1,23 +1,4 @@
-function doLayout(settings, parent, children) {
-	var containerSize = parent.getInnerSize();
-
-}
-
-function validateElements(varArgs) {
-	function testFor(element, attribute, type, rejectUndefined) {
-		var ela = element[attribute];
-		if (typeof ela !== type && (!(ela === null || ela === undefined) || rejectUndefined)) {
-			throw attribute + ' must be ' + type + (!rejectUndefined ? ',null or undefined' : '');
-		}
-	}
-	for (let i = 0; i < arguments.length; i++) {
-		var t = testFor.bind(this, arguments[i]);
-		t('width', 'number');
-		t('minWidth', 'number');
-		t('height', 'number');
-		t('minHeight', 'number');
-	}
-}
+var df = require('./dataFormat.js');
 
 function validateLayoutData(bound, children, fIndex, stateData) {
 	var calcsize = (stateData.sizePerElement * stateData.countAdj) + stateData.calculatedOffset;
@@ -48,40 +29,8 @@ function validateLayoutData(bound, children, fIndex, stateData) {
 	}
 }
 
-function LayoutProcessObject(baseData) {
-	var me = this;
-	validateElements(baseData);
-
-	me.baseData = baseData;
-	me.size = [-1, -1];
-	me.sizeDyn = [true, true];
-	me.sizeMin = [-1, -1];
-	me.sizeMax = [-1, -1];
-	me.weight = [1, 1];
-	me.align = [-1, -1]; //todo use this
-	if (baseData.width > 0) {
-		me.size[0] = baseData.width;
-		me.sizeDyn[0] = false;
-	}
-
-	if (baseData.height > 0) {
-		me.size[1] = baseData.height;
-		me.sizeDyn[1] = false;
-	}
-
-	me.sizeMin[0] = baseData.minWidth > 0 ? baseData.minWidth : me.sizeMin[0];
-	me.sizeMin[1] = baseData.minHeight > 0 ? baseData.minHeight : me.sizeMin[1];
-
-	me.sizeMax[0] = baseData.maxWidth > 0 ? baseData.maxWidth : me.sizeMax[0];
-	me.sizeMax[1] = baseData.maxHeight > 0 ? baseData.maxHeight : me.sizeMax[1];
-
-	me.weight[0] = baseData.weightWidth > 0 ? baseData.weightWidth : me.weight[0];
-	me.weight[1] = baseData.weightHeight > 0 ? baseData.weightHeight : me.weight[1];
-
-}
-
 //prepare element array for processing
-const prepareArray = (elementArray) => elementArray.map(e => new LayoutProcessObject(e));
+const prepareArray = (elementArray) => elementArray.map(e => new df.GenericToLPO(e));
 
 
 function getWidthOfNonDynamic(elements) {
@@ -104,7 +53,7 @@ function calculateSize(current, state, fIndex) {
 	var couldNotFit = false;
 	//Set dynamic or fixed size
 	if (current.sizeDyn[fIndex]) {
-		current.size[fIndex] = state.sizePerElement * current.weight[fIndex];
+		current.size[fIndex] = state.sizePerElement * current.sizeWeight[fIndex];
 		current.size[fIndex] += (state.remainingOffset | 0) > 0 ? state.adjust[fIndex] : 0;
 
 		if (current.size[fIndex] < state.sizeMin[fIndex]) {
@@ -138,9 +87,8 @@ function calculateSize(current, state, fIndex) {
 
 
 function calculateLayout(bound, children, fIndex, offsetAccumulator) {
-	//TODO add element size 'weight'
+	//TODO add element size 'sizeWeight'
 	var fixCalc = getWidthOfNonDynamic(children);
-
 	var stateData = {
 		sizePerElement: null,
 		remainingOffset: null,
@@ -149,9 +97,8 @@ function calculateLayout(bound, children, fIndex, offsetAccumulator) {
 		adjust: [1, 1],
 		sizeMin: [1, 1],
 		sizeAdj: bound - fixCalc.size[fIndex],
-		countAdj: children.reduce((prev, next) => prev + next.weight[fIndex], 0) - fixCalc.count[fIndex]
+		countAdj: children.reduce((prev, next) => prev + next.sizeWeight[fIndex], 0) - fixCalc.count[fIndex]
 			//children.length - fixCalc.count[fIndex]
-
 	};
 
 	stateData.sizePerElement = stateData.countAdj > 0 ? (stateData.sizeAdj / stateData.countAdj) : 0;
